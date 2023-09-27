@@ -26,14 +26,18 @@ const upload = multer({storage:storage});
 
 const adminController = require("../controllers/AdminController");
 const blogCategoryController = require("../controllers/BlogCategoryController");
+const blogController = require("../controllers/BlogController");
 
 adminRoute.get('/',adminController.index);
-adminRoute.get('/blogs',adminController.blogs);
+
 adminRoute.get('/blog-create',adminController.create);
 
 adminRoute.get('/blog-categories',blogCategoryController.index);
 adminRoute.get('/create-blog-category',blogCategoryController.create);
 adminRoute.post('/blog-category-store',blogCategoryController.store);
 adminRoute.get("/blog-category-delete/:id",blogCategoryController.destroy);
+
+adminRoute.get('/blogs',blogController.index);
+adminRoute.get('/create-blog',blogController.create);
 
 module.exports = adminRoute;
