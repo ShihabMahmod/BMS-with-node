@@ -39,5 +39,6 @@ adminRoute.get("/blog-category-delete/:id",blogCategoryController.destroy);
 
 adminRoute.get('/blogs',blogController.index);
 adminRoute.get('/create-blog',blogController.create);
+adminRoute.post('/store-blog',upload.single('image'),blogController.store);
 
 module.exports = adminRoute;

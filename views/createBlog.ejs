@@ -20,9 +20,9 @@
                                 </div>
                             </div>
                             <div class="sherah-page-inner sherah-border sherah-basic-page sherah-default-bg mg-top-25 p-0">
-                                <form class="sherah-wc__form-main" action="#">
+                                <form class="sherah-wc__form-main" action="/store-blog" method="POST">
                                     <div class="row">
-                                        <div class="col-lg-6 col-12">
+                                        <div class="col-12">
                                             <!-- Product Info -->
                                             <div class="product-form-box sherah-border mg-top-30">
                                                 <h4 class="form-title m-0">Blog Information</h4>
@@ -31,20 +31,36 @@
                                                         <div class="form-group">
                                                             <label class="sherah-wc__form-label">Blog Title</label>
                                                             <div class="form-group__input">
-                                                                <input class="sherah-wc__form-input" placeholder="Type here" type="text" name="p_title">
+                                                                <input class="sherah-wc__form-input" placeholder="Type here" type="text" name="title">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     
                                                     
-                                                    <div class="col-lg-6 col-md-6 col-12">
+                                                    <div class="col-12">
                                                         <div class="form-group">
                                                             <label class="sherah-wc__form-label">Category*</label>
-                                                            <select class="form-group__input" aria-label="Default select example">
-                                                                <option selected="">Men</option>
-                                                                <option value="1">Women</option>
-                                                                <option value="2">Clock</option>
+                                                            <select name="category" class="form-group__input" aria-label="Default select example">
+                                                                <option value="">Select</option>
+                                                                <% 
+                                                                    for(let i = 0; i < category.length; i++ )
+                                                                    {
+                                                                    %>
+                                                                    <option value="<% category[i].id %>"><%= category[i].name %></option>
+                                                                    <%
+                                                                    }
+                                                                %>
+                                                                
                                                             </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-12">
+                                                        <div class="form-group">
+                                                            <label class="sherah-wc__form-label">Descreption</label>
+                                                            <div class="form-group__input">
+                                                                <textarea class="sherah-wc__form-input" rows="10" placeholder="Type here" name="descreption"></textarea>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                    
@@ -52,152 +68,17 @@
                                             </div>
                                             <!-- End Product Info -->
                                         </div>
-                                        <div class="col-lg-6 col-12">
-                                            <!-- Organization -->
-                                            <div class="product-form-box sherah-border mg-top-30">
-                                                <h4 class="form-title m-0">Organization</h4>
-                                                <div class="form-group">
-                                                    <label class="sherah-wc__form-label">Add Category</label>
-                                                    <div class="form-group__input">
-                                                        <input class="sherah-wc__form-input" placeholder="Type here" type="text" name="p_title">
-                                                        <button class="sherah-btn__add sherah-btn sherah-btn__secondary" type="button">Add</button>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="sherah-wc__form-label">Add Brand</label>
-                                                    <div class="form-group__input">
-                                                        <input class="sherah-wc__form-input" placeholder="Type here" type="text" name="p_title">
-                                                        <button class="sherah-btn__add sherah-btn sherah-btn__secondary" type="button">Add</button>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="sherah-wc__form-label">Add Color</label>
-                                                    <div class="form-group__input">
-                                                        <input class="sherah-wc__form-input" placeholder="Type here" type="text" name="p_title">
-                                                        <button class="sherah-btn__add sherah-btn sherah-btn__secondary" type="button">Add</button>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="sherah-wc__form-label">Add Size</label>
-                                                    <div class="form-group__input">
-                                                        <input class="sherah-wc__form-input" placeholder="Type here" type="text" name="p_title">
-                                                        <button class="sherah-btn__add sherah-btn sherah-btn__secondary" type="button">Add</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- End Organization -->
-                                            <!-- Specification -->
-                                            <div class="product-form-box sherah-border mg-top-30">
-                                                <h4 class="form-title m-0">Specification</h4>
-                                                <div class="row">
-                                                    <div class="col-lg-6 col-md-6 col-12">
-                                                        <div class="form-group">
-                                                            <label class="sherah-wc__form-label">Stock</label>
-                                                            <div class="form-group__input">
-                                                                <input class="sherah-wc__form-input" placeholder="Type here" type="text" name="p_title">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6 col-md-6 col-12">
-                                                        <div class="form-group">
-                                                            <label class="sherah-wc__form-label">Weight</label>
-                                                            <div class="form-group__input">
-                                                                <input class="sherah-wc__form-input" placeholder="Type here" type="text" name="p_title">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6 col-md-6 col-12">
-                                                        <div class="form-group">
-                                                            <label class="sherah-wc__form-label">Size</label>
-                                                            <div class="checkbox-group">
-                                                                <div class="checkbox-group__single">
-                                                                    <input type="checkbox" class="btn-check" name="options" id="option1" autocomplete="off">
-                                                                    <label class="checkbox-group__single--label" for="option1">MM</label>
-                                                                </div>
-                                                                <div class="checkbox-group__single">
-                                                                    <input type="checkbox" class="btn-check" name="options" id="option2"  checked autocomplete="off">
-                                                                    <label class="checkbox-group__single--label" for="option2">XL</label>
-                                                                </div>
-                                                                <div class="checkbox-group__single">
-                                                                    <input type="checkbox" class="btn-check" name="options" id="option3" autocomplete="off">
-                                                                    <label class="checkbox-group__single--label" for="option3">M</label>
-                                                                </div>
-                                                                <div class="checkbox-group__single">
-                                                                    <input type="checkbox" class="btn-check" name="options" id="option4" autocomplete="off">
-                                                                    <label class="checkbox-group__single--label" for="option4">MM</label>
-                                                                </div>
-                                                                <div class="checkbox-group__single">
-                                                                    <input type="checkbox" class="btn-check" name="options" id="option5" autocomplete="off">
-                                                                    <label class="checkbox-group__single--label" for="option5">X</label>
-                                                                </div>
-                                                                <div class="checkbox-group__single">
-                                                                    <input type="checkbox" class="btn-check" name="options" id="option6" autocomplete="off">
-                                                                    <label class="checkbox-group__single--label" for="option6">SM</label>
-                                                                </div>
-                                                                <div class="checkbox-group__single">
-                                                                    <input type="checkbox" class="btn-check" name="options" id="option7" autocomplete="off">
-                                                                    <label class="checkbox-group__single--label" for="option7">2X</label>
-                                                                </div>
-                                                                <div class="checkbox-group__single">
-                                                                    <input type="checkbox" class="btn-check" name="options" id="option8" autocomplete="off">
-                                                                    <label class="checkbox-group__single--label" for="option8">3X</label>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6 col-md-6 col-12">
-                                                        <div class="form-group">
-                                                            <label class="sherah-wc__form-label">Colors</label>
-                                                            <div class="checkbox-group">
-                                                                <div class="checkbox-group__single">
-                                                                    <input type="checkbox" class="btn-check" name="options" id="option9" autocomplete="off">
-                                                                    <label class="checkbox-group__single--label" for="option9">White</label>
-                                                                </div>
-                                                                <div class="checkbox-group__single">
-                                                                    <input type="checkbox" class="btn-check" name="options" id="option10"  checked autocomplete="off">
-                                                                    <label class="checkbox-group__single--label" for="option10">Black</label>
-                                                                </div>
-                                                                <div class="checkbox-group__single">
-                                                                    <input type="checkbox" class="btn-check" name="options" id="option11" autocomplete="off">
-                                                                    <label class="checkbox-group__single--label" for="option11">Harlequin</label>
-                                                                </div>
-                                                                <div class="checkbox-group__single">
-                                                                    <input type="checkbox" class="btn-check" name="options" id="option12" autocomplete="off">
-                                                                    <label class="checkbox-group__single--label" for="option12">Red</label>
-                                                                </div>
-                                                                <div class="checkbox-group__single">
-                                                                    <input type="checkbox" class="btn-check" name="options" id="option13" autocomplete="off">
-                                                                    <label class="checkbox-group__single--label" for="option13">Yellow</label>
-                                                                </div>
-                                                                <div class="checkbox-group__single">
-                                                                    <input type="checkbox" class="btn-check" name="options" id="option14" autocomplete="off">
-                                                                    <label class="checkbox-group__single--label" for="option14">Blue</label>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- End Specification -->
-                                        </div>
+                                       
                                     </div>
                                     <div class="product-form-box sherah-border mg-top-30">
                                         <div class="form-group">
                                             <div class="image-upload-group">
-                                                <div class="image-upload-group__single">
-                                                    <img src="img/product-img5.png">
-                                                </div>
-                                                <div class="image-upload-group__single">
-                                                    <img src="img/product-img6.png">
-                                                </div>
-                                                <div class="image-upload-group__single">
-                                                    <img src="img/product-img8.png">
-                                                </div>
+                                                
                                                 <div class="image-upload-group__single">
                                                     <img src="img/product-img9.png">
                                                 </div>
                                                 <div class="image-upload-group__single image-upload-group__single--upload">
-                                                    <input type="file" class="btn-check" name="options" id="input-img1" autocomplete="off">
+                                                    <input type="file" class="btn-check" name="image" id="input-img1" autocomplete="off">
                                                     <label class="image-upload-label" for="input-img1">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="91.787" height="84.116" viewBox="0 0 91.787 84.116">
                                                             <g id="Group_1021" data-name="Group 1021" transform="translate(891.292 39.276)">
@@ -213,7 +94,7 @@
                                         </div>
                                     </div>
                                     <div class=" mg-top-40 sherah-dflex sherah-dflex-gap-30 justify-content-end">
-                                        <button type="submit" class="sherah-btn sherah-btn__primary">Publish Product</button>
+                                        <button type="submit" class="sherah-btn sherah-btn__primary">Publish Blog</button>
                                         <button  class="sherah-btn sherah-btn__third">Cancel</button>
                                     </div>
                                 </form>
